@@ -16,9 +16,3 @@ const meta = {
 export default meta;
 
 export const Base: Story = {};
-
-export const isHoverAnimating: Story = {
-  args: {
-    isHoverAnimating: true,
-  },
-};

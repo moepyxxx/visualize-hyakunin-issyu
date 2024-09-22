@@ -1,13 +1,12 @@
-import { FC, useEffect, useState } from "react";
-import { useMount } from "react-use";
+import { FC, useState } from "react";
 import { HoverAnimatedItem } from "./HoverAnimatedItem";
+import { useSpring, animated } from "@react-spring/web";
 
 type Props = {
   kaminoku: string;
   onClick: () => void;
   className?: string;
   canvasID: string;
-  isHoverAnimating?: boolean;
 };
 
 export const Karuta: FC<Props> = ({
@@ -15,12 +14,21 @@ export const Karuta: FC<Props> = ({
   onClick,
   className,
   canvasID,
-  isHoverAnimating = false,
 }) => {
+  const [isHoverAnimating, setIsHoverAnimating] = useState(false);
+
+  const hoverSpring = useSpring({
+    from: { color: "#012607" },
+    to: { color: "#F7F5F3" },
+    config: { duration: 1000 },
+  });
+
   return (
     <button
       onClick={onClick}
-      className={`bg-card min-w-64 rounded overflow-hidden ${
+      onMouseEnter={() => setIsHoverAnimating(true)}
+      onMouseLeave={() => setIsHoverAnimating(false)}
+      className={`bg-card min-w-64 rounded overflow-hidden relative ${
         className ? className : ""
       }`}>
       <HoverAnimatedItem
@@ -30,9 +38,12 @@ export const Karuta: FC<Props> = ({
       <div className="p-3">
         <div className="bg-white rounded py-8 px-3 writing-mode-vertical-rl text-start">
           {splitStringByN(kaminoku, 5).map((line, i) => (
-            <p className="text-4xl leading-loose tracking-very-wide" key={i}>
+            <animated.p
+              className="text-4xl leading-loose tracking-very-wide relative z-10"
+              style={isHoverAnimating ? hoverSpring : undefined}
+              key={i}>
               {line}
-            </p>
+            </animated.p>
           ))}
         </div>
       </div>
