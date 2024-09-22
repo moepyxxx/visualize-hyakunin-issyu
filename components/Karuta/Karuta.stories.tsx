@@ -15,8 +15,3 @@ const meta = {
 export default meta;
 
 export const Base: Story = {};
-export const Rotate: Story = {
-  args: {
-    rotate: -5,
-  },
-};

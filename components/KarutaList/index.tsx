@@ -1,0 +1,1 @@
+export { KarutaList } from "./KarutaList";

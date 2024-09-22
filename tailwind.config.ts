@@ -19,6 +19,15 @@ const config: Config = {
       letterSpacing: {
         "very-wide": "0.5em",
       },
+      backgroundImage: {
+        texture: "url('/bg.png')",
+      },
+      translate: {
+        half: "-50%",
+      },
+      inset: {
+        "-10px": "-10px",
+      },
     },
   },
   plugins: [

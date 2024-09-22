@@ -3,14 +3,14 @@ import { FC } from "react";
 type Props = {
   kaminoku: string;
   onClick: () => void;
-  rotate?: number;
+  className?: string;
 };
 
-export const Karuta: FC<Props> = ({ kaminoku, onClick, rotate = 0 }) => {
+export const Karuta: FC<Props> = ({ kaminoku, onClick, className }) => {
   return (
     <button
       onClick={onClick}
-      className={`bg-card rounded p-3 rotate-[${rotate}deg]`}>
+      className={`bg-card min-w-64 rounded p-3 ${className ? className : ""}`}>
       <div className="bg-white rounded py-8 px-3 writing-mode-vertical-rl text-start">
         {splitStringByN(kaminoku, 5).map((line, i) => (
           <p className="text-4xl leading-loose tracking-very-wide" key={i}>
