@@ -1,4 +1,7 @@
 import type { Preview } from "@storybook/react";
+import React from "react";
+import "../app/globals.css";
+import { NotoSerifJP } from "../app/fonts/NotoSerifJP";
 
 const preview: Preview = {
   parameters: {
@@ -9,6 +12,13 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className={NotoSerifJP.className}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default preview;

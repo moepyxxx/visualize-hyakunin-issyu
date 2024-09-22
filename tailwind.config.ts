@@ -13,8 +13,24 @@ const config: Config = {
         black: "var(--black)",
         white: "var(--white)",
       },
+      writingMode: {
+        "vertical-rl": "vertical-rl",
+      },
+      letterSpacing: {
+        "very-wide": "0.5em",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".writing-mode-vertical-rl": {
+          "writing-mode": "vertical-rl",
+        },
+      };
+
+      addUtilities(newUtilities);
+    },
+  ],
 };
 export default config;

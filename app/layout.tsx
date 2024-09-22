@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
-
-const notoSerifJP = Noto_Serif_JP({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+import { NotoSerifJP } from "./fonts/NotoSerifJP";
 
 export const metadata: Metadata = {
   title: "ビジュアル百人一首",
@@ -21,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${notoSerifJP.className}`}>{children}</body>
+      <body className={`${NotoSerifJP.className}`}>{children}</body>
     </html>
   );
 }
