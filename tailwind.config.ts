@@ -9,8 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        card: "var(--card)",
+        black: "var(--black)",
+        white: "var(--white)",
       },
     },
   },
