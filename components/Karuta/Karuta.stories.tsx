@@ -9,9 +9,16 @@ const meta = {
   component: Karuta,
   args: {
     kaminoku: "わかころもてはつゆにぬれつつ",
+    canvasID: "canvas",
   },
 } satisfies Meta<typeof Karuta>;
 
 export default meta;
 
 export const Base: Story = {};
+
+export const isHoverAnimating: Story = {
+  args: {
+    isHoverAnimating: true,
+  },
+};
